@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: appgateflask
+spec:
+  selector:
+    matchLabels:
+      app: appgateflask
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: appgateflask
+    spec:
+      containers:
+      - name: appgateflask
+        image: sebasam91/appgateexam:latest
+        ports:
+            - containerPort: 8000
+              protocol: TCP
